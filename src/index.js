@@ -1,9 +1,4 @@
-/* eslint-disable */
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-const { window } = new JSDOM(``);
-global.window = window;
-global.document = window.document;
+import loadList from './make-list-component.js';
+import { studies } from '../test-studies.js';
 
-require = require('esm')(module);
-module.exports = require("./tests.js");
+loadList(studies);
