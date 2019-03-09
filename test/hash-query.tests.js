@@ -12,6 +12,16 @@ function pageToQuery(existingQuery, page) {
     searchParams.set('page', page);
     return searchParams.toString();
 }
+
+function queryToObject(existingQuery) {
+    const searchParams = new URLSearchParams(existingQuery);
+    const searchTerm = searchParams.get('searchTerm');
+    const page = parseInt(searchParams.get('page'));
+    return {
+        searchTerm: searchTerm,
+        page: page
+    };
+}
 test('set search term to empty hash', assert => {
     const existingQuery = '';
     const searchTerm = 'mouse';
@@ -41,4 +51,16 @@ test('set page number to existing hash query', assert => {
     const result = pageToQuery(existingQuery, page);
 
     assert.equal(result, expected);
+});
+
+test('get object info from query', assert => {
+    const existingQuery = 'searchTerm=mouse&page=2';
+
+    const expected = {
+        searchTerm: 'mouse',
+        page: 2
+    };
+
+    const result = queryToObject(existingQuery);
+    assert.deepEqual(result, expected);
 });
