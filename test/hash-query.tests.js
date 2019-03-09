@@ -3,29 +3,29 @@ import { searchToQuery, pageToQuery, queryToObject } from '../src/hash-query-com
 
 test('set search term to empty hash', assert => {
     const existingQuery = '';
-    const searchTerm = 'mouse';
+    const term = 'mouse';
 
-    const expected = 'searchTerm=mouse&page=1';
+    const expected = 'term=mouse&page=1';
 
-    const result = searchToQuery(existingQuery, searchTerm);
+    const result = searchToQuery(existingQuery, term);
 
     assert.equal(result, expected);
 });
 
 test('set search term to existing hash query', assert => {
-    const existingQuery = 'searchTerm=mouse&page=1';
-    const searchTerm = 'rat';
+    const existingQuery = 'term=mouse&page=1';
+    const term = 'rat';
 
-    const expected = 'searchTerm=rat&page=1';
+    const expected = 'term=rat&page=1';
 
-    const result = searchToQuery(existingQuery, searchTerm);
+    const result = searchToQuery(existingQuery, term);
     assert.equal(result, expected);
 });
 
 test('set page number to existing hash query', assert => {
-    const existingQuery = 'searchTerm=mouse&page=1';
+    const existingQuery = 'term=mouse&page=1';
     const page = 2;
-    const expected = 'searchTerm=mouse&page=2';
+    const expected = 'term=mouse&page=2';
 
     const result = pageToQuery(existingQuery, page);
 
@@ -33,10 +33,10 @@ test('set page number to existing hash query', assert => {
 });
 
 test('get object info from query', assert => {
-    const existingQuery = 'searchTerm=mouse&page=2';
+    const existingQuery = 'term=mouse&page=2';
 
     const expected = {
-        searchTerm: 'mouse',
+        term: 'mouse',
         page: 2
     };
 
