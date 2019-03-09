@@ -1,12 +1,12 @@
 export function makeStudyList(study) {
     const html = `
     <li>
-                <h2>Rodent Research-3-CASIS: Mouse liver transcriptomic proteomic and epigenomic data</h2>
-                <img src="/genelab/img/GLDS137__study_image.png" alt="">
-                <h3>Mission Start Date: 08-Apr-2016</h3>
-                <h3>Mission End Date: 11-May-2016</h3>
-                <p>Project Type: Spaceflight Study</p>
-                <p>Study Description: The Rodent Research-3 (RR-3) mission was sponsored by the pharmaceutical company Eli Lilly and Co. and the Center for the Advancement of Science in Space to study the effectiveness of a potential countermeasure for the loss of muscle and bone mass that occurs during spaceflight. Twenty BALB/c 18-weeks old female mice (ten controls and ten treated) were flown to the ISS and housed in the Rodent Habitat for 39-42 days. Twenty mice of similar age sex and strain were used for ground controls housed in identical hardware and matching ISS environmental conditions. Basal controls were housed in standard vivarium cages. Spaceflight ground controls and basal groups had blood collected then were euthanized had one hind limb removed and finally whole carcasses were stored at -80 C until dissection. All mice in this data set received only the control/sham injection.</p>
+                <h2>${study._source['Study Title']}</h2>
+                <img src="${study._source['thumbnail']}" alt="">
+                <h3>Mission Start Date: ${study._source['Start Date']}</h3>
+                <h3>Mission End Date: ${study._source['End Date']}</h3>
+                <p>Project Type: ${study._source['Project Type']}</p>
+                <p>Study Description: ${study._source['Study Description']}</p>
             </li>`;
 
     const template = document.createElement('template');
@@ -17,6 +17,9 @@ export function makeStudyList(study) {
 const studyListNode = document.getElementById('study-list');
 
 export default function loadList(studies) {
+    while(studyListNode.children.length > 0) {
+        studyListNode.lastElementChild.remove();
+    }
     studies.forEach(study => {
         const studyLI = makeStudyList(study);
         studyListNode.appendChild(studyLI);

@@ -12,6 +12,7 @@ window.addEventListener('hashchange', () => {
     const corsURL = 'https://cors-anywhere.herokuapp.com/';
     const url = createApiURL(queryOptions);
     const fullURL = corsURL + url;
+    console.log(fullURL);
     fetch(fullURL)
         .then(response => response.json())
         .then(body => {
