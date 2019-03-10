@@ -8,6 +8,7 @@ test('make list of studies from html template', assert => {
         _source: {
             'Study Title': 'Rodent Research-3-CASIS: Mouse liver transcriptomic proteomic and epigenomic data',
             'thumbnail': '/genelab/img/GLDS137__study_image.png',
+            'Project Link': 'https://lsda.jsc.nasa.gov/scripts/experiment/exper.aspx?exp_index=1857',
             Mission: {
                 'Start Date': '08-Apr-2016',
                 'End Date': '11-May-2016'
@@ -19,8 +20,8 @@ test('make list of studies from html template', assert => {
 
     const expected = `
     <li>
-                <h2>Rodent Research-3-CASIS: Mouse liver transcriptomic proteomic and epigenomic data</h2>
                 <img src="https://genelab-data.ndc.nasa.gov/genelab/img/GLDS137__study_image.png" alt="">
+                <h2><a href="https://lsda.jsc.nasa.gov/scripts/experiment/exper.aspx?exp_index=1857">Rodent Research-3-CASIS: Mouse liver transcriptomic proteomic and epigenomic data</a></h2>
                 <h3>Mission Start Date: 08-Apr-2016</h3>
                 <h3>Mission End Date: 11-May-2016</h3>
                 <h4>Project Type: Spaceflight Study</h4>
