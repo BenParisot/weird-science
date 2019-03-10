@@ -61,6 +61,8 @@ main {
     padding-left: 0;
 }
 #study-list li {
+    display: flex;
+    flex-direction: row;
     list-style: none;
     border: 1px solid black;
     margin-bottom: 10px;
@@ -69,5 +71,9 @@ main {
 
 #study-list li img {
     float: left;
-    margin-right: 10px;
+    margin: 0px 10px 10px 10px;
+}
+
+#study-list li h3 {
+    line-height: 0;
 }

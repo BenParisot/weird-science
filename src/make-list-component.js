@@ -1,13 +1,17 @@
 export function makeStudyList(study) {
     const IMG_BASE_URL = 'https://genelab-data.ndc.nasa.gov';
     const html = `
-    <li>
-                <img src="${IMG_BASE_URL + study._source['thumbnail']}" alt="">
-                <h2><a href="${study._source['Project Link']}">${study._source['Study Title']}</a></h2>
-                <h3>Mission Start Date: ${study._source.Mission['Start Date']}</h3>
-                <h3>Mission End Date: ${study._source.Mission['End Date']}</h3>
-                <h4>Project Type: ${study._source['Project Type']}</h4>
-                <p>Study Description: ${study._source['Study Description']}</p>
+    <li>   
+        <section id="li-img">
+            <img src="${IMG_BASE_URL + study._source['thumbnail']}" alt="">
+        </section>
+        <section id="li-info">
+            <h2><a href="${study._source['Project Link']}">${study._source['Study Title']}</a></h2>
+            <h3>Mission Start Date: ${study._source.Mission['Start Date']}</h3>
+            <h3>Mission End Date: ${study._source.Mission['End Date']}</h3>
+            <h4>Project Type: ${study._source['Project Type']}</h4>
+            <p>Study Description: ${study._source['Study Description']}</p>
+        </section>
             </li>`;
 
     const template = document.createElement('template');
