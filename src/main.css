@@ -28,8 +28,32 @@ header a {
     margin-right: 25px;
 }
 
+main {
+    padding: 15px 25px;
+}
 
+#search-form {
+    height: 40px;
+}
 
+#search-input {
+    width: 200px;
+    height: 25px;
+    padding: 5px 10px;
+}
+
+#search-form button {
+    border-radius: 0px;
+    box-shadow: none;   
+    color: white;
+    background: steelblue;
+    border: none;
+    padding: 1px 10px;
+    font-size: 18px;
+    margin-left: 10px;
+    align-self: center;
+    height: 100%;
+}
 
 #study-list {
     padding-left: 0;
